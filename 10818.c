@@ -1,21 +1,16 @@
-/*백준 10818번*/
 #include <stdio.h>
 #include <limits.h>
 
 int main(){
-    int N, k;
-    int max=INT_MIN, min=INT_MAX;
+	int min = INT_MAX, max = INT_MIN;
+	int N, num;
 
-    scanf("%d", &N);
-
-    for(int i=0; i<N; i++){
-        scanf("%d", &k);
-
-        if(min>k)   min=k;
-        if(max<k)   max=k;       
-    }
-    
-    printf("%d %d \n", min, max);
-
-    return 0;
+	scanf("%d", &N);
+	for(int i=0; i<N; i++){
+		scanf("%d", &num);
+		
+		if (max < num)	max = num;
+		if (min > num)	min = num;
+	}
+	printf("%d %d\n", min, max);
 }
