@@ -17,3 +17,4 @@
 
 * [🥉 2501번 약수 구하기](https://www.acmicpc.net/problem/2501)
 * [🥉 3460번 이진수](https://www.acmicpc.net/problem/3460)
+* [🥉 2443번 별 찍기 - 6](https://www.acmicpc.net/problem/2443)
