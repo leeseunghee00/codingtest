@@ -18,3 +18,6 @@
 * [🥉 2501번 약수 구하기](https://www.acmicpc.net/problem/2501)
 * [🥉 3460번 이진수](https://www.acmicpc.net/problem/3460)
 * [🥉 2443번 별 찍기 - 6](https://www.acmicpc.net/problem/2443)
+* [🥉 9498번 시험 성적](https://www.acmicpc.net/problem/9498)
+* [🥉 2444번 별 찍기 - 7](https://www.acmicpc.net/problem/2444)
+* [🥉 5598번 카이사르 암호](https://www.acmicpc.net/problem/5598)
