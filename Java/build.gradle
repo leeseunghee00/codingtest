@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group = 'org.study'
+group = 'leeseunghee.study'
 version = '1.0-SNAPSHOT'
 
 repositories {

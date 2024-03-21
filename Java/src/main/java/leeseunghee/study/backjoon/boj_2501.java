@@ -1,4 +1,4 @@
-package org.study;
+package leeseunghee.study.backjoon;
 
 import java.util.*;
 
