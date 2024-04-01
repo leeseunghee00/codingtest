@@ -1,6 +1,6 @@
 package leeseunghee.study.programmers;
 
-public class 서울에서김서방찾기 {
+public class pgs_서울에서김서방찾기 {
 
     public static void main(String[] args) {
 

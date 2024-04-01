@@ -1,13 +1,19 @@
 package leeseunghee.study.programmers;
 
-public class Network {
+public class pgs_네트워크 {
 
-    int n;
-    int answer;
-    int[][] computers;
-    boolean[] visited;
+    static int n;
+    static int[][] computers;
+    static boolean[] visited;
 
-    public void dfs(int i) {
+    public static void main(String[] args) {
+
+        computers = new int[][]{{1, 1, 0}, {1, 1, 0}, {0, 0, 1}};
+
+        System.out.println(solution(3, computers));
+    }
+
+    private static void dfs(int i) {
         // 방문함 체크
         visited[i] = true;
 
@@ -20,11 +26,9 @@ public class Network {
         }
     }
 
-    public int solution(int n, int[][] computers) {
+    private static int solution(int n, int[][] computers) {
 
-        answer = 0;
-        this.n = n;
-        this.computers = computers;
+        int answer = 0;
         visited = new boolean[n];
 
         for (int i = 0; i < n; i++) {

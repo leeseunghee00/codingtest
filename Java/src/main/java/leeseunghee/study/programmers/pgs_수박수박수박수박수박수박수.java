@@ -1,8 +1,6 @@
 package leeseunghee.study.programmers;
 
-import java.util.Scanner;
-
-public class 수박수박수박수박수박수박수 {
+public class pgs_수박수박수박수박수박수박수 {
 
     public static void main(String[] args) {
 

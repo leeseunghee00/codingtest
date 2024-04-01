@@ -1,11 +1,19 @@
 package leeseunghee.study.programmers;
 
-public class TargetNumber {
-    int[] numbers;
-    int target;
-    int answer = 0;
+public class pgs_타겟넘버 {
+    static int[] numbers;
+    static int target;
+    static int answer = 0;
 
-    void dfs(final int index, final int sum) {
+    public static void main(String[] args) {
+
+        numbers = new int[]{1, 1, 1, 1, 1};
+        target = 3;
+
+        System.out.println(solution(numbers, target));
+    }
+
+    private static void dfs(final int index, final int sum) {
         // 1. 탈출 조건
         if (index == numbers.length){
             if (sum == target) answer++;
@@ -18,11 +26,9 @@ public class TargetNumber {
         dfs(index + 1, sum - numbers[index]);
     }
 
-    public int solution(final int[] numbers, final int target) {
+    private static int solution(int[] numbers, int target) {
 
         answer = 0;
-        this.numbers = numbers;
-        this.target = target;
 
         dfs(0, 0);
 

@@ -1,6 +1,6 @@
 package leeseunghee.study.programmers;
 
-public class 두정수사이의합 {
+public class pgs_두정수사이의합 {
 
     public static void main(String[] args) {
 

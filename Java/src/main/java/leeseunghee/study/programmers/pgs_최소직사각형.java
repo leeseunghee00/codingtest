@@ -1,12 +1,19 @@
 package leeseunghee.study.programmers;
 
-public class MiniRectangle {
+public class pgs_최소직사각형 {
 
-    int width = 0;      //총 계산된 카드 너비
-    int height = 0;     //총 계산된 카드 높이
-    int answer = 0;
+    static int width = 0;      //총 계산된 카드 너비
+    static int height = 0;     //총 계산된 카드 높이
+    static int answer = 0;
 
-    public int main(int[][] sizes) {
+    public static void main(String[] args) {
+
+        int[][] sizes = {{60, 50}, {30, 70}, {60, 30}, {80, 40}};
+
+        System.out.println(solution(sizes));
+    }
+
+    private static int solution(int[][] sizes) {
 
         // 1. 2차원 배열을 1차원 배열로 순회
         for (int[] card : sizes) {
