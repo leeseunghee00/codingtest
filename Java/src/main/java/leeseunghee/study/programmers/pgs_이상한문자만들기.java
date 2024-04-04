@@ -11,23 +11,23 @@ public class pgs_이상한문자만들기 {
 
     private static String solution(String s) {
 
-        String answer = "";
+        StringBuilder answer = new StringBuilder();
         String[] str = s.split(" ", -1);
 
         for (String word : str) {
             for (int i = 0; i < word.length(); i++) {
                 if (i % 2 == 0) {
-                    answer += Character.toUpperCase(word.charAt(i));
+                    answer.append(Character.toUpperCase(word.charAt(i)));
                 } else {
-                    answer += Character.toLowerCase(word.charAt(i));
+                    answer.append(Character.toLowerCase(word.charAt(i)));
                 }
             }
 
-            if (word != str[str.length - 1]) {
-                answer += " ";
+            if (!word.equals(str[str.length - 1])) {
+                answer.append(" ");
             }
         }
 
-        return answer;
+        return answer.toString();
     }
 }
