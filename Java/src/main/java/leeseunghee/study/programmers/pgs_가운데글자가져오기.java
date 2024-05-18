@@ -1,6 +1,6 @@
 package leeseunghee.study.programmers;
 
-public class 가운데글자가져오기 {
+public class pgs_가운데글자가져오기 {
 
     public static void main(String[] args) {
 
