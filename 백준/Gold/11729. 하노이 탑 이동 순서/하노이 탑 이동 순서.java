@@ -1,29 +1,34 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
 
-	static int N;
+	static int N, count;
 	static StringBuilder sb = new StringBuilder();
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws IOException {
 
-		N = sc.nextInt();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		sb.append((int) Math.pow(2, N) - 1).append("\n");
-		hanoi(N, 1, 3, 2);
+		N = Integer.parseInt(br.readLine());
+
+		count = (int)(Math.pow(2, N) - 1);
+		sb.append(count).append("\n");
+
+		hanoi(N, 1, 2, 3);
 
 		System.out.println(sb);
 	}
 
-	private static void hanoi(int n, int from, int to, int mid) {
-		if (n == 1) {
-			sb.append(from + " " + to + "\n");
+	private static void hanoi(int idx, int start, int mid, int end) {
+		if (idx == 1) {
+			sb.append(start).append(" ").append(end).append("\n");
 			return;
 		}
 
-		hanoi(n - 1, from, mid, to);
-		sb.append(from + " " + to + "\n");
-		hanoi(n - 1, mid, to, from);
+		hanoi(idx - 1, start, end, mid);
+		hanoi(1, start, mid, end);
+		hanoi(idx - 1, mid, start, end);
 	}
 }
