@@ -1,31 +1,37 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Queue;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Main {
 
 	static int N, M, V;
-	static boolean[] visit;
-	static ArrayList<ArrayList<Integer>> graph;
+	static boolean[] visited;
+	static ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws IOException {
 
-		N = sc.nextInt();
-		M = sc.nextInt();
-		V = sc.nextInt();
-		visit = new boolean[N + 1];
-		graph = new ArrayList<>();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		V = Integer.parseInt(st.nextToken());
+
+		visited = new boolean[N + 1];
 
 		for (int i = 0; i <= N; i++) {
 			graph.add(new ArrayList<>());
 		}
 
 		for (int i = 0; i < M; i++) {
-			int u = sc.nextInt();
-			int v = sc.nextInt();
+			st = new StringTokenizer(br.readLine());
+			int u = Integer.parseInt(st.nextToken());
+			int v = Integer.parseInt(st.nextToken());
 
 			graph.get(u).add(v);
 			graph.get(v).add(u);
@@ -36,44 +42,43 @@ public class Main {
 		}
 
 		dfs(V);
-
-		for (int i = 0; i <= N; i++) {
-			visit[i] = false;
-		}
-
 		System.out.println();
 
+		for (int i = 0; i <= N; i++) {
+			visited[i] = false;
+		}
+
 		bfs(V);
+	}
+
+	private static void dfs(int v) {
+		visited[v] = true;
+		System.out.print(v + " ");
+
+		for (int i : graph.get(v)) {
+			if (!visited[i]) {
+				dfs(i);
+			}
+		}
 	}
 
 	private static void bfs(int v) {
 		Queue<Integer> queue = new ArrayDeque<>();
 
 		queue.offer(v);
-		visit[v] = true;
+		visited[v] = true;
 
 		while (!queue.isEmpty()) {
+
 			int num = queue.poll();
 			System.out.print(num + " ");
 
 			for (int i : graph.get(num)) {
-				if (!visit[i]) {
+				if (!visited[i]) {
 					queue.offer(i);
-					visit[i] = true;
+					visited[i] = true;
 				}
 			}
 		}
 	}
-
-	private static void dfs(int v) {
-		visit[v] = true;
-		System.out.print(v + " ");
-
-		for (int i : graph.get(v)) {
-			if (!visit[i]) {
-				dfs(i);
-			}
-		}
-	}
-
 }
