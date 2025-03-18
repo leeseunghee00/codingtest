@@ -1,6 +1,6 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 public class Main {
 
@@ -8,48 +8,51 @@ public class Main {
 	static char[][] arr;
 	static StringBuilder sb = new StringBuilder();
 
-	public static void main(String[] args) throws Exception {
-		// 입력 받기
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
+	public static void main(String[] args) throws IOException {
 
-		N = Integer.parseInt(st.nextToken());
-		arr = new char[N][];
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		N = Integer.parseInt(br.readLine());
+		arr = new char[N][N];
 
 		for (int i = 0; i < N; i++) {
 			arr[i] = br.readLine().toCharArray();
 		}
 
-		// 영역 분할
-		quadTree(0, 0, N);
+		divide(0, 0, N);
 
-		// 출력
-		System.out.println(sb);
+		System.out.println(sb.toString());
 	}
 
-	private static void quadTree(int y, int x, int size) {
-		int sum = 0;
+	private static void divide(int y, int x, int n) {
 
-		for (int i = y; i < y + size; i++) {
-			for (int j = x; j < x + size; j++) {
-				sum += arr[i][j] - '0';
-			}
-		}
-
-		if (sum == 0 || sum == (size * size)) {	// 0 또는 1 로 채워져 있는 경우
-			sb.append(sum / (size * size));
-			return;
-		} else {	// 그렇지 않다면, 영역 분할
+		if (check(y, x, n)) {
+			sb.append(arr[y][x]);
+		} else {
 			sb.append("(");
-			
-			int newSize = size /= 2;
 
-			quadTree(y, x, newSize);
-			quadTree(y, x + newSize, newSize);
-			quadTree(y + newSize, x, newSize);
-			quadTree(y + newSize, x + newSize, newSize);
+			int half = n / 2;
+
+			divide(y, x, half);
+			divide(y, x + half, half);
+			divide(y + half, x, half);
+			divide(y + half, x + half, half);
 
 			sb.append(")");
 		}
+	}
+
+	private static boolean check(int y, int x, int n) {
+		char ch = arr[y][x];
+
+		for (int r = y; r < y + n; r++) {
+			for (int c = x; c < x + n; c++) {
+				if (arr[r][c] != ch) {
+					return false;
+				}
+			}
+		}
+
+		return true;
 	}
 }
