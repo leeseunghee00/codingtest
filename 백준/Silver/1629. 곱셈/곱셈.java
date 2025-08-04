@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 public class Main {
 
-	static long A, B, C, result;
+	static long A, B, C;
 
 	public static void main(String[] args) throws IOException {
 
